@@ -1,0 +1,154 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+@model KidsLand.Models.ViewModels.MainPageViewModel
+
+<div class="slider" style="width: 1160px;">
+    <div class="row">
+        <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <div style="float: left; display: block">
+                    <div class="span4" style="float: left; display: block">
+                        <div class="text">
+                            <h6>
+                                You Child
+                                <span> safewith us. Don't worry!</span>
+                            </h6>
+                            <p> Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. </p>
+                            <a href="#" class="more">read more</a>
+                        </div>
+                    </div>
+                    <div class="span8" style="float: left; display: block">
+                        <div class="bg-frame">
+                            <img src="~/Content/img/slide-3.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="span4">
+                    <div class="text">
+                        <h6>
+                            Fulltime
+                            <span>childcare and education</span>
+                        </h6>
+                        <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                        <a href="#" class="more">read more</a>
+                    </div>
+                </div>
+                <div class="span8">
+                    <div class="bg-frame">
+                        <img src="~/Content/img/slide-1.jpg" />
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="span4">
+                    <div class="text">
+                        <h6>
+                            We Care
+                            <span>about your children</span>
+                        </h6>
+                        <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                        <a href="#" class="more">read more</a>
+                    </div>
+                </div>
+                <div class="span8">
+                    <div class="bg-frame">
+                        <img src="~/Content/img/slide-2.jpg" />
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+        <img src="~/Content/img/desk.png" class="desk" alt="" />
+    </div>
+</div>
+<div class="titles">
+    <div style="margin-left: 22px;">
+        <section id="banners">
+            <div class="row" style="width: 1160px;">
+                <div class="span13 red-box" style="margin-left: 30px;">
+                    <div class="inner">
+                        <h5>Hello</h5>
+                        <img alt="" src="~/Content/img/photo-1.jpg" width="200" />
+                        <p>
+                            <b>Welcome to kids land</b>
+                            Conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+                        </p>
+                        <a class="read" href="#">read more</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="span13 yellow-box">
+                    <div class="inner">
+                        <h5>Группы</h5>
+                        <ul class="list">
+                            <li>Kids education</li>
+                            <li>Conse ctetur adipisicin</li>
+                            <li>Elit, sed do eiusmod</li>
+                            <li>Tempor incididunt</li>
+                            <li>Labore et dolore</li>
+                            <li>Ipsum dolor sit amet</li>
+                            <li>Adipisicing elit, sed do</li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="span13 green-box">
+                    <div class="inner">
+                        <h5>Новости</h5>
+                        @foreach (var i in Model.NewsList)
+                        {
+                            <p class="news-title">
+                                <b>@i.NewsDate</b>
+                                @i.NewsTitle
+                            </p>
+                        }
+                        @*<p>
+                            <b>24 of December 2014</b>
+                            Conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+                        </p>
+                        <p>
+                            <b>03 of September 2014</b>
+                            Conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet
+                        </p>*@
+                        <a class="read" href="@Url.Action("News","News")">read more</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="span13 blue-box">
+                    <div class="inner">
+                        <h5>Ссылки</h5>
+                        <ul class="list2">
+                            <li>Lorem ipsum adipisicing</li>
+                            <li>Conse ctetur adipisicing</li>
+                            <li>Elit, sed do eiusmod</li>
+                            <li>Tempor incididunt</li>
+                            <li>Labore et dolore magna</li>
+                            <li>Ipsum dolor sit amet conse ctetur adipis</li>
+                            <li>Sed do eiusmod tempor inc idunt ut labore et dolore</li>
+                            <li>Ipsum dolor sit amet </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<script>
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+        });
+    });
+</script>
+
+
+

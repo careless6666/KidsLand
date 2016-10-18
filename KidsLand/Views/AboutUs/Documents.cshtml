@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Documents";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+<div class="container">
+    <p class="breadcrumb">
+        <div class="normal-font20">
+            @Html.ActionLink("Главная", "Index", "HomePage")
+            > Нормативные документы
+        </div>
+    </p>
+</div>
+
+<section id="content">
+<div class="container">
+    <div class="row">
+        <div class="head-title">Нормативные документы</div>
+        
+        <div class="ul-vertical">
+            <ol class="ul-vertical">
+                <li><a href="~/Content/Documents/Положение о дошкольном отделении.pdf">Положение о дошкольном отделении</a></li>
+                <li><a href="~/Content/Documents/Положение о личном деле.pdf">Положение о личном деле</a></li>
+                <li><a href="~/Content/Documents/Положение о системе внутр.мониторинга КО.pdf">Положение о системе внутр.мониторинга КО</a></li>
+                <li><a href="~/Content/Documents/Порядок организации ОД 2014.pdf">Порядок организации ОД 2014</a></li>
+                <li><a href="~/Content/Documents/Правила приема и отчисления 2014.pdf">Правила приема и отчисления 2014</a></li>
+            </ol>
+        </div>
+    </div>
+</div>
+</section>

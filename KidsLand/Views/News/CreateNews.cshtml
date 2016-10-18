@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMenuAdmin.cshtml";
+}
+
+@model KidsLand.Models.ViewModels.NewsViewModel
+
+<script src="@Url.Content("~/Scripts/jquery-2.1.0.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.json-2.4.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate-vsdoc.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="head-title">Создание новостей</div>
+            <br/>
+            @using (Html.BeginForm("SaveNews", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(x => x.NewsTitle, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(x => x.NewsTitle, new { @class = "form-control input-data" })
+                        @Html.ValidationMessageFor(x => x.NewsTitle)
+                    </div>
+                </div>
+                <div class="padcontent"></div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.NewsBody, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(x => x.NewsBody, new { @class = "form-control input-data" })
+                        @Html.ValidationMessageFor(x => x.NewsBody)
+                    </div>
+                </div>
+                <div class="padcontent"></div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.NewsImg, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(x => x.NewsImg, new { @class = "file", @type = "file" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-default">Создать</button>
+                    </div>
+                </div>
+                <div class="padcontent"></div>
+            }
+
+    </div>
+    </div>
+</section>

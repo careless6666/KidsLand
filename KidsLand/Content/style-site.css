@@ -1,0 +1,107 @@
+﻿.left-menu {
+    margin-left: 0px; 
+    margin-right: 20px;
+}
+
+.logo-photo {
+    width: 800px; 
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.logo-photo2 {
+    width: 450px; 
+ }
+
+.block-list {
+    margin-left: 25px;
+}
+
+.login-block {
+    margin-left: 25px;
+}
+
+.user-name {
+    color: white;
+    float: left; 
+    clear: both; 
+    margin-top: 35px; 
+    margin-right: 5px;
+}
+
+.input-data {
+    width: 350px;
+}
+
+.capcha {
+    margin-left: 220px;
+    margin-bottom: 15px;
+}
+
+.head-title {
+    margin: 0 auto;
+    margin-left: 25px;
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.ul-vertical ol {
+    float: none;
+    font-size: 17px;
+}
+
+.ul-vertical ol li{
+    float: none;
+}
+
+.ul-vertical ol li a{
+    font-size: 17px;
+    color: black;
+}
+
+.menu-block a {
+    font-size: 17px;
+}
+
+.img-uploader {
+    float: left;
+    margin-right: 7px;
+}
+
+.current-news-img {
+    width: 200px; 
+    height: 200px; 
+    float: left; 
+    margin-right: 15px;
+}
+
+.all-news-img {
+    width: 150px; 
+    height: 150px;
+}
+
+.news-title{
+    font-size: 14px;
+}
+
+.link-style {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.text-body {
+    font-size: 15px;
+}
+
+.del-btn {
+    border: 0;
+
+}
+
+.del-btn a{
+    border: 0;
+    color: white;
+}

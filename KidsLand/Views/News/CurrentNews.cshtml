@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "CurrentNews";
+    Layout = "~/Views/Shared/_LayoutMenuAdmin.cshtml";
+}
+
+@model KidsLand.Models.ViewModels.NewsViewModel
+
+<div class="container">
+        <div class="normal-font20">
+            @Html.ActionLink("Главная", "Index", "HomePage") > 
+            @Html.ActionLink("Новости", "News", "News")
+        </div>
+</div>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            @using (Html.BeginForm("EditNews", "News"))
+            {
+                <div class="team">
+                    <img src="@Model.News.NewsImg" class="photo current-news-img"/>
+                    <div class="dis-table" >
+                        <span class="title">@Model.News.NewsTitle</span>
+                        <br/>
+                        <p class="text-body">
+                            @Model.News.NewsBody
+                        </p>
+                    </div>
+                    <div class="padcontent_small"></div>
+                    <div>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <button type="submit" class="btn btn-info">Редактировать</button>
+                            <button type="button" class="btn btn-danger" onclick="return confirmDelete();"
+                                     value="@Model.News.NewsId" id="SubmitName">Удалить</button>
+                        }
+                    </div>
+                </div>
+                @Html.TextBoxFor(x => x.News.NewsId, new { @style = "visibility:hidden;" })
+            }
+            <div class="padcontent"></div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    function RemoveNews() {
+        var first = $('#SubmitName').val();
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("RemoveNews", "News")' + "?id=" + first,
+            success: function (data, textStatus) {
+                // data.redirect contains the string URL to redirect to
+                window.location.href = '@Url.Action("News", "News")';
+
+            }
+        });
+    };
+
+    function confirmDelete() {
+        if (confirm("Вы действительно хотите удалить данную новость?")) {
+            RemoveNews();
+        } else {
+            return false;
+        }
+
+    }
+</script>

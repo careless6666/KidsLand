@@ -1,0 +1,144 @@
+﻿@using KidsLand.Controllers
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "_LayoutMenu";
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/hoverIntent.js"></script>
+
+<div id="bg-top">
+    <div class="container">
+        <header>
+            <div class="row top">
+                <div class="span3">
+                    <div class="clearfix">
+                        <div class="clearfix header-block-pad">
+                            <a href="@Url.Action("Index", "HomePage")">
+                                <img src="@Url.Content("~/Content/img/logo.png")"  alt=""/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="span7">
+                    <p class="phone">
+                        We always care about your child! Call us:  
+                        <span>1 800 123 4567</span>
+                    </p>
+                </div>
+                <div class="span2">
+                    @if (User.Identity.GetUserName().Equals(string.Empty))
+                    {
+                        <button onclick=" location.href = '@Url.Action("Login", "Account")';return false; " class=" btn mybtn">Log in</button>
+                        <button onclick=" location.href = '@Url.Action("Register", "Account")';return false; " class=" btn btn-primary signinbtn">Sign in</button>
+                    }
+                    else
+                    {
+                        <div>
+                            <div class="user-name">@User.Identity.GetUserName()</div>
+                            <button onclick=" location.href = '@Url.Action("LogOff", "Account")';return false; " class=" btn btn-primary signinbtn">Log off</button>
+                        </div>
+                    }
+                </div>
+                
+            </div>
+            <div id="nav_section">
+                <div class="row">
+                    <div class="span12">
+                        <div class="navbar navbar_ clearfix">
+                            <div class="navbar-inner navbar-inner_">
+                                @*<a class="menu btn-navbar" data-target=".nav-collapse_" data-toggle="collapse">MENU</a>*@
+                                <div class="nav-collapse nav-collapse_ collapse">
+                                    <span class="line"></span>
+                                    <ul class="nav sf-menu">
+                                        <li>@Html.ActionLink("О нас", "Index", "AboutUs", null, new { @class = "push-up-button" })
+                                            <ul style="display: none;">
+                                                <li>@Html.ActionLink("История", "TeachersIndex", "Teachers")</li>
+                                                <li>@Html.ActionLink("Нормативные документы", "Documents", "AboutUs")</li>
+                                                <li>@Html.ActionLink("Педагоги", "TeachersIndex", "Teachers")</li>
+                                                <li><a href="#">Наши достижения</a></li>
+                                                <li><a href="#">Контакты</a></li>
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    if (User.IsInRole("Admin"))
+                                                    {
+                                                        <li>@Html.ActionLink("Кабинет администратора","Index","Admin")</li>
+                                                    }
+                                                }
+                                            </ul></li>
+                                        <li>@Html.ActionLink("Логопед", "Index", "Logoped", null, new { @class = "push-up-button" })</li>
+                                        <li class=""><a href="#" style="font-size: 22px;"> Психолог </a>
+                                            <ul style="display: none;">
+                                                <li><a href="#"> Ерунда </a></li>
+                                                <li class="has-ul">
+                                                    <a href="#"> Recent projects</a>
+                                                    <ul style="display: none;">
+                                                        <li><a href="#"> Project 1</a></li>
+                                                        <li><a href="#"> Project 2</a></li>
+                                                        <li><a href="#"> Project 3</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#"> Childcare</a></li>
+                                                <li><a href="#"> Education</a></li>
+                                                <li><a href="#"> Page not found (404)</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#" class="push-up-button"> Доп. образование </a></li>
+                                        <li>
+                                            @*@Html.ActionLink("Обр.&nbsp;деятельность", "InterestIndex", "Interest", null, new { @class = "push-up-button" })*@
+                                            <a href="#" title="Образовательная деятельность">Обр.&nbsp;деятельность</a>
+                                        </li>
+                                        <li>
+                                            @*@Html.ActionLink("Контакты", "ContactsIndex", "Contacts", null, new { @class = "push-up-button" })*@
+                                            <a href="#">Здоровьесбережение</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    @RenderBody()
+    <footer>
+        <div class="bg_center_footer">
+            <div class="container">
+                <div class="row">
+                    <div class="span11">
+                        <ul>
+                            <li>
+                                @Html.ActionLink("О нас", "Index", "AboutUs")
+                            </li>
+                            <li> @Html.ActionLink("Логопед", "Index", "Logoped")</li>
+                            <li><a href="#">Психолог</a> </li>
+                            <li><a href="#">Доп. образование</a></li>
+                            <li><a href="#" title="Образовательная деятельность">Образователь. деятельность</a></li>
+                            <li><a href="#">Здоровьесбережение</a></li>
+                        </ul>
+                        <div class="clearfix">
+                        </div>
+                        <p>                            Copyright © 2013. All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script>
+
+    jQuery(document).ready(function () {
+        jQuery('ul.sf-menu').superfish();
+    });
+
+</script>
+
+
+
+
+

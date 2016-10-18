@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_LayoutMenuAdmin.cshtml";
+}
+@using PagedList
+@using PagedList.Mvc
+@model  PagedList<KidsLand.Models.EF.News>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div id="rData">
+                <h2>Новости</h2>
+                @{
+                    foreach (var n in Model)
+                    {
+                        <div class="team" >
+                            <img src="@n.NewsImg" class="photo all-news-img" style="float: left; margin-right: 15px;" />
+                    <div class="dis-table">
+                        <span class="title">
+                            <a id="@n.NewsId" href="#" class="link-style" style="border: 0; font-size: 30px; margin-left: 30px;" onclick="getNews(this.id)">@n.NewsTitle</a>
+                        </span> @n.NewsDate
+                        <p class="text-body">
+                            @n.NewsBody
+                        </p>
+                    </div>
+                    </div>
+                        <br/>
+                            <div class="padcontent"></div>
+                    }
+                    @Html.PagedListPager(Model, page => Url.Action("News", new { page }), PagedListRenderOptions.PageNumbersOnly)
+}
+                        </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    function getNews(val) {
+        var str = val;
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("GetNews", "News")' + '?str=' + str,
+            success: function(data, textStatus) {
+                // data.redirect contains the string URL to redirect to
+                window.location.href = '@Url.Action("GetNews", "News")' + '?str=' + str;
+
+            }
+        });
+    }
+
+</script>

@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "TeacherView";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+@*@Styles.Render("~/Content/jcarousel-style.css")*@
+@Styles.Render("~/Content/jcarousel.basic.css")
+@Scripts.Render("~/Scripts/jquery.jcarousel.min.js")
+@Scripts.Render("~/Scripts/jcarousel.basic.js")
+
+<div class="container">
+    <p class="breadcrumb">
+        <div class="normal-font20">
+            @Html.ActionLink("Главная", "Index", "HomePage")
+            @Html.ActionLink(" > О нас ", "Index", "AboutUs")
+            > Педагоги
+        </div>
+    </p>
+</div>    
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <h1>Наши преподаватели</h1>
+                <div style="width: 750px;">
+                    <div class="wrapper">
+                      
+                        <div class="jcarousel-wrapper">
+                            <div class="jcarousel">
+                                <ul>
+                                    <li>
+                                        <div class="example3">
+                                            <img src="~/Content/img/Teachers/Antropova.jpg" alt="">
+                                            <div class="example_text">
+                                                <h6>Антропова Тамара Андреевна</h6>
+                                                    <span>Должность</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="example3">
+                                            <img src="~/Content/img/Teachers/Ogolihina.jpg" alt="">
+                                            <div class="example_text">
+                                                <h6>Оголихина Лариса Борисовна</h6>
+                                                <span>Должность</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="example3">
+                                            <img src="~/Content/img/Teachers/Vilkova.jpg" alt="">
+                                            <div class="example_text">
+                                                <h6>Вилкова Татьяна Витальевна</h6>
+                                                <span>Должность</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="example3">
+                                            <img src="~/Content/img/Teachers/volkova.jpg" alt="">
+                                            <div class="example_text">
+                                                <h6>Волкова Татьяна Анатольевна</h6>
+                                                <span>Должность</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                            <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+
+                            <p class="jcarousel-pagination">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="span14">
+                <div class="latest">
+                    <h3>Latest news</h3>
+                    <p>
+                        <b>24 0f January 2014</b>
+                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+                        <a href="#">more ></a>
+                    </p>
+                    <p>
+                        <b>24 0f January 2014</b>
+                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+                        <a href="#">more ></a>
+                    </p>
+                    <p>
+                        <b>24 0f January 2014</b>
+                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+                        <a href="#">more ></a>
+                    </p>
+                    <a class="arhive" href="#">news arhive <em>→</em></a>
+                    <div class="clearfix padcontent_small"></div>
+                </div>
+                <div class="clearfix padcontent"></div>
+                <div class="offers">
+                    <h4>Special Offer</h4>
+
+                </div>
+            </div>
+            <div class="clearfix padcontent"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(function () {
+        $('.jcarousel').jcarousel({
+            // Configuration goes here
+        });
+    });
+</script>
